@@ -1,3 +1,6 @@
-test("first test should be passed", () => {
-  expect(1).toEqual(1);
-});
+describe('init test', () => {
+  test("first test should be passed", () => {
+    expect(1).toEqual(1);
+  })
+
+})

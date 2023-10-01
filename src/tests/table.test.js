@@ -96,18 +96,22 @@ const mockData = {
 		}
 	]
 }
-test("TableComponent should rendered", () => {
-	render(<Table cleanings={initCleanings} />);
-	expect(screen.getByTestId("TableComponent")).toBeInTheDocument()
-});
 
-test("TableComponent should rendered correct isLoading state", () => {
-	render(<Table cleanings={initCleanings} isLoading />);
-	expect(screen.getByTestId("TableSkeleton")).toBeInTheDocument()
-});
+describe('TableComponent Test', () => {
+	test("TableComponent should rendered", () => {
+		render(<Table cleanings={initCleanings} />);
+		expect(screen.getByTestId("TableComponent")).toBeInTheDocument()
+	});
 
-test("TableComponent should rendered correct with data", async () => {
-	render(<Table cleanings={mockData} />);
-	expect(screen.queryByTestId("TableSkeleton")).toBeNull()
-	expect(screen.getByTestId('TableComponent')).toHaveTextContent('Fooweg 8')
-});
+	test("TableComponent should rendered correct isLoading state", () => {
+		render(<Table cleanings={initCleanings} isLoading />);
+		expect(screen.getByTestId("TableSkeleton")).toBeInTheDocument()
+	});
+
+	test("TableComponent should rendered correct with data", async () => {
+		render(<Table cleanings={mockData} />);
+		expect(screen.queryByTestId("TableSkeleton")).toBeNull()
+		expect(screen.getByTestId('TableComponent')).toHaveTextContent('Fooweg 8')
+	});
+
+})
